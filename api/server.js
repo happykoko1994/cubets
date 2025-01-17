@@ -8,7 +8,7 @@ const port = 5000;
 
 // Разрешаем CORS для всех доменов
 app.use(cors({
-  origin: 'http://localhost:3000',  // Разрешить только с этого источника
+  origin: ['http://localhost:3000', 'https://cubets-maxims-projects-b69b44ba.vercel.app'],  // Разрешить доступ с двух источников
 }));
 // Использование body-parser для обработки JSON
 app.use(bodyParser.json());
