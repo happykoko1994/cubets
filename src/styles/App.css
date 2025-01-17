@@ -1,0 +1,153 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Общие стили для всего приложения */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    height: calc(100vh - 64px); /* Занимаем всё пространство, за исключением высоты Header */
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 300px;
+    margin-right: 20px;
+    height: 100%; /* Привязываем к высоте родителя */
+    padding: 20px;
+  }
+  
+  .scene-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Привязываем к высоте родителя */
+  }
+  
+  /* Заголовок */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px; /* Высота Header */
+  }
+  
+  .header-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: gray; /* Стандартный цвет для светлой темы */
+  }
+  
+  .dark-mode .header-title {
+    color: white; /* Белый цвет для тёмной темы */
+  }
+  
+  /* Для тёмной темы */
+  .dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+  
+  .dark-mode .ant-switch {
+    background-color: #666;
+  }
+  
+  .dark-mode .ant-switch-checked {
+    background-color: #007bff;
+  }
+  
+  .dark-mode .form-container{
+    background-color: #333;
+  }
+  
+  .dark-mode .ant-btn-primary {
+    background-color: #007bff;
+  }
+  
+  /* Позиционирование кнопки переключения в правом верхнем углу */
+  .switch-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .switch-container span {
+    margin-right: 8px;
+    color: gray; /* Стандартный цвет текста */
+  }
+  
+  .dark-mode .switch-container span {
+    color: white; /* Белый цвет текста для тёмной темы */
+  }
+  
+  /* Стили для формы */
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 300px;
+    margin-right: 20px;
+    padding: 20px;
+  }
+  
+  /* Стили для лейблов */
+  .form-item-label {
+    font-size: 14px;
+    color: black;
+  }
+  
+  .dark-mode .form-item-label {
+    color: white; /* Белый цвет для лейблов в тёмной теме */
+  }
+  
+  /* Контейнер для инпута */
+  .input-container {
+    background-color: white; /* Светлый фон по умолчанию */
+    border-radius: 8px;
+  }
+  
+  .input-container input, .input-container .ant-input-number {
+    background-color: transparent; /* Прозрачный фон для инпутов */
+    color: black; /* Тёмный текст по умолчанию */
+  }
+  
+  .input-container .ant-input-number:focus {
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+  }
+  
+  .dark-mode .input-container {
+    background-color: #444; /* Тёмный фон для контейнера инпута в тёмной теме */
+    border: 1px solid #555;
+  }
+  
+  .dark-mode .input-container input, .dark-mode .input-container .ant-input-number {
+    color: white; /* Светлый текст в инпутах в тёмной теме */
+  }
+  
+  .dark-mode .input-container .ant-input-number:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+  }
+  
+  input[type="color"] {
+    width: 50px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dark-mode input[type="color"] {
+    background-color: #444;
+    border: 1px solid #666;
+  }
+  
