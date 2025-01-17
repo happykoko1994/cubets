@@ -13,7 +13,7 @@ const BoxForm: React.FC<BoxFormProps> = ({ onSubmit }) => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/box', {
+      const response = await fetch('/api/box', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

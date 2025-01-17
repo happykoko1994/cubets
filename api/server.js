@@ -1,37 +1,28 @@
-// В вашем серверном коде
 import express from 'express';
 import bodyParser from 'body-parser';
-import cors from 'cors';
+import cors from 'cors';  // Импортируем cors
 
+// Инициализация приложения
 const app = express();
 const port = 5000;
 
-// Разрешаем CORS с нескольких источников
-const allowedOrigins = [
-  'http://localhost:3000',   // для локальной разработки
-  'https://cubets-maxims-projects-b69b44ba.vercel.app', // для вашего фронтенда на Vercel
-];
-
+// Разрешаем CORS для всех доменов
 app.use(cors({
-  origin: function(origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {  // Проверяем источник
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
+  origin: ['http://localhost:3000', 'https://cubets-maxims-projects-b69b44ba.vercel.app'],  // Разрешить доступ с двух источников
 }));
-
-// Обработка POST-запроса
+// Использование body-parser для обработки JSON
 app.use(bodyParser.json());
 
+// POST-обработчик для получения параметров коробки
 app.post('/api/box', (req, res) => {
   const { length, width, height } = req.body;
 
+  // Проверяем, что параметры переданы
   if (!length || !width || !height) {
     return res.status(400).json({ error: 'All parameters (length, width, height) are required' });
   }
 
+  // Логика для вычисления координат вершин коробки
   const vertices = [
     { x: 0, y: 0, z: 0 },
     { x: length, y: 0, z: 0 },
@@ -43,6 +34,7 @@ app.post('/api/box', (req, res) => {
     { x: 0, y: width, z: height },
   ];
 
+  // Отправляем результат на клиент
   res.json({ vertices });
 });
 
